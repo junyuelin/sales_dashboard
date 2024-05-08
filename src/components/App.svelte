@@ -30,15 +30,10 @@
 		mesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
 		$: console.log({ states, mesh })
 
-    allData = await d3.csv('https://raw.githubusercontent.com/junyuelin/sales_dashboard/main/static/Adidas%20US%20Sales%20Datasets.csv');
+    allData = await d3.csv('https://raw.githubusercontent.com/junyuelin/sales_dashboard/main/static/cleaned.csv');
     console.log(allData);
 	})
 
-  allData = allData.map(d => ({
-    product: +d["Product"],
-    operating_profit: +d["Operating Profit"], // Ensure conversion to number
-    state: +d["State"]
-  }));
   function handleStateClick(feature) {
     selected = feature;
     const stateName = feature.properties.name;
@@ -48,8 +43,8 @@
     selectedStateData = d3.rollups(
         selectedStateData, 
         v => d3.sum(v, d => d.operating_profit), 
-        d => d.product
-    ).map(([product, operating_profit]) => ({product, operating_profit}));
+        d => d.Product
+    ).map(([Product, operating_profit]) => ({Product, operating_profit}));
     console.log("Selected State Data: ", selectedStateData);
 }
 </script>
