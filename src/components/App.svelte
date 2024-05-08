@@ -1,4 +1,5 @@
 <script>
+  import Graph from '../components/Graph.svelte';
 	import { onMount } from 'svelte';
 	import * as topojson from 'topojson-client';
 	import { geoPath, geoAlbersUsa } from 'd3-geo';
@@ -7,12 +8,12 @@
 	const projection = geoAlbersUsa().scale(500).translate([487.5, 305])
 	
 	const path = geoPath().projection(null);
-	
+  
+	let todo_category;
 	let states = [];
 	let mesh;
 	let selected;
 	//$: console.log({ selected })
-
 	
 	onMount(async () => {
 		const us = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-albers-10m.json')
@@ -46,12 +47,20 @@
 	{#if selected}
 		<path d={path(selected)} fill="hsl(0 0% 50% / 20%)" stroke="black" stroke-width={2} />
 	{/if}
-		
-
+  
 </svg>
 
 <div class="selectedName">{selected?.properties.name ?? ''}</div>
-	
+
+<main>
+
+   <section class="graph">
+        <h2 style="margin-top: 15px">todo pie</h2>
+        <Graph bind:todo_category={todo_category}/>
+    </section>
+
+</main>
+
 <style>
 	.state:hover {
 		fill: hsl(0 0% 50% / 20%);
@@ -62,4 +71,16 @@
 		margin-top: 8px;
 		font-size: 1.5rem;
 	}
+  .graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centers children horizontally */
+    justify-content: center; /* Centers children vertically if needed */
+  }
+
+  h2 {
+    margin-top: 15px;
+    margin-bottom: 20px; /* Adjust space between title and graph */
+    text-align: center; /* Center-aligns the text */
+  }
 </style>
