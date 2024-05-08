@@ -1,41 +1,65 @@
 <script>
-  import { onMount } from 'svelte';
-  import * as d3 from 'd3';
+	import { onMount } from 'svelte';
+	import * as topojson from 'topojson-client';
+	import { geoPath, geoAlbersUsa } from 'd3-geo';
+	import { draw } from 'svelte/transition';
+	
+	const projection = geoAlbersUsa().scale(500).translate([487.5, 305])
+	
+	const path = geoPath().projection(null);
+	
+	let states = [];
+	let mesh;
+	let selected;
+	//$: console.log({ selected })
 
-  let svg;
-
-  onMount(async () => {
-    const width = 960, height = 600;
-    
-    const projection = d3.geoAlbersUsa()
-        .translate([width / 2, height / 2])
-        .scale(1300);
-
-    const path = d3.geoPath().projection(projection);
-
-    const data = await d3.json('static/us-states.json');
-
-    d3.select(svg)
-      .selectAll('path')
-      .data(data.features)
-      .enter()
-      .append('path')
-      .attr('d', path)
-      .attr('fill', '#ccc')
-      .attr('stroke', 'white')
-      .attr('stroke-width', 1.5);
-  });
+	
+	onMount(async () => {
+		const us = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-albers-10m.json')
+			.then(d => d.json())
+		console.log({ us })
+		
+		states = topojson.feature(us, us.objects.states).features;
+		// using TopoJSON's feature method to convert state into GeoJSON for easy handling and rendering
+	
+		mesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
+		
+		$: console.log({ states, mesh })
+	})
 </script>
 
-<style>
-  svg {
-    width: 100%;
-    height: auto;
-    max-width: 960px;
-    margin: auto;
-    display: block;
-    background-color: #f4f4f4;
-  }
-</style>
+<svg viewBox="0 0 2000 610"> // viewbox of the US map
+	<!-- State shapes -->
+	<g fill="white" stroke="black"> // the fill the state color as white and the border as black
+		{#each states as feature, i} 
+			<path d={path(feature)} on:click={() => selected = feature} class="state" in:draw={{ delay: i * 50, duration: 1000 }} />
+		{/each} 
+    // each state path has an 'on:click' event to set the selected state, 
+    // and uses the 'draw' transition for a delay effect based on its index
+				
+	</g>
+		
+	<!-- Interior lines -->
+<!-- 	<path d={path(mesh)} fill="none" stroke="black" /> -->
 
-<svg bind:this={svg}></svg>
+  // if a state is selected, it is highlighted with a semi-transparent gray fill	
+	{#if selected}
+		<path d={path(selected)} fill="hsl(0 0% 50% / 20%)" stroke="black" stroke-width={2} />
+	{/if}
+		
+
+</svg>
+
+<div class="selectedName">{selected?.properties.name ?? ''}</div>
+	
+<style>
+	.state:hover {
+		fill: hsl(0 0% 50% / 20%);
+	}
+	
+	.selectedName {
+		text-align: center;
+		margin-top: 8px;
+		font-size: 1.5rem;
+	}
+</style>
