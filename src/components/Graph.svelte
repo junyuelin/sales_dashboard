@@ -1,16 +1,17 @@
 <script>
 	import * as d3 from 'd3';
-    export let todo_category = [];
+    export let selectedStateData = [];
     console.log('Graph loaded');
+
 	let arcGenerator = d3.arc()
 		.innerRadius(10)
 		.outerRadius(100)
 		.padAngle(.02)
 		.cornerRadius(4);
-	let pieAngleGenerator = d3.pie();
-	let sample_data = [1,4,5,2,4]
-	let arc_data = pieAngleGenerator(sample_data);
-	console.log(JSON.stringify(arc_data));
+
+	let pieAngleGenerator = d3.pie().value(d => d.operating_profit);
+
+    $: arc_data = pieAngleGenerator(selectedStateData);
 
 </script>
 

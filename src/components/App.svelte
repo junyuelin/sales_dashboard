@@ -4,7 +4,16 @@
 	import * as topojson from 'topojson-client';
 	import { geoPath, geoAlbersUsa } from 'd3-geo';
 	import { draw } from 'svelte/transition';
+  import * as d3 from 'd3';
 	
+  let allData = [
+        { product: "Product A", operating_profit: 100, state: "California" },
+        { product: "Product B", operating_profit: 150, state: "California" }
+        // more data...
+    ];
+  
+  let selectedStateData = [];
+
 	const projection = geoAlbersUsa().scale(500).translate([487.5, 305])
 	
 	const path = geoPath().projection(null);
@@ -27,13 +36,26 @@
 		
 		$: console.log({ states, mesh })
 	})
+  function handleStateClick(feature) {
+    selected = feature;
+    const stateName = feature.properties.name;
+    console.log(stateName);
+
+    selectedStateData = allData.filter(d => d.state == stateName);
+    selectedStateData = d3.rollups(
+        selectedStateData, 
+        v => d3.sum(v, d => d.operating_profit), 
+        d => d.product
+    ).map(([product, operating_profit]) => ({product, operating_profit}));
+    console.log("Selected State Data: ", selectedStateData);
+}
 </script>
 
 <svg viewBox="0 0 2000 610"> // viewbox of the US map
 	<!-- State shapes -->
 	<g fill="white" stroke="black"> // the fill the state color as white and the border as black
 		{#each states as feature, i} 
-			<path d={path(feature)} on:click={() => selected = feature} class="state" in:draw={{ delay: i * 50, duration: 1000 }} />
+			<path d={path(feature)} on:click={() =>  handleStateClick(feature)} class="state" in:draw={{ delay: i * 50, duration: 1000 }} />
 		{/each} 
     // each state path has an 'on:click' event to set the selected state, 
     // and uses the 'draw' transition for a delay effect based on its index
@@ -53,12 +75,10 @@
 <div class="selectedName">{selected?.properties.name ?? ''}</div>
 
 <main>
-
    <section class="graph">
-        <h2 style="margin-top: 15px">todo pie</h2>
-        <Graph bind:todo_category={todo_category}/>
+        <h2 style="margin-top: 15px">Operating Profit by Product</h2>
+        <Graph {selectedStateData} />
     </section>
-
 </main>
 
 <style>
