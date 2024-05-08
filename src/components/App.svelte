@@ -5,13 +5,8 @@
 	import { geoPath, geoAlbersUsa } from 'd3-geo';
 	import { draw } from 'svelte/transition';
   import * as d3 from 'd3';
-	
-  let allData = [
-        { product: "Product A", operating_profit: 100, state: "California" },
-        { product: "Product B", operating_profit: 150, state: "California" }
-        // more data...
-    ];
-  
+
+  let allData = [];
   let selectedStateData = [];
 
 	const projection = geoAlbersUsa().scale(500).translate([487.5, 305])
@@ -33,20 +28,22 @@
 		// using TopoJSON's feature method to convert state into GeoJSON for easy handling and rendering
 	
 		mesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
-		
 		$: console.log({ states, mesh })
+
+    allData = await d3.csv('https://raw.githubusercontent.com/junyuelin/sales_dashboard/main/static/Adidas%20US%20Sales%20Datasets.csv');
+    console.log("loaded all data");
 	})
   function handleStateClick(feature) {
     selected = feature;
     const stateName = feature.properties.name;
     console.log(stateName);
 
-    selectedStateData = allData.filter(d => d.state == stateName);
+    selectedStateData = allData.filter(d => d.State == stateName);
     selectedStateData = d3.rollups(
         selectedStateData, 
         v => d3.sum(v, d => d.operating_profit), 
-        d => d.product
-    ).map(([product, operating_profit]) => ({product, operating_profit}));
+        d => d.Product
+    ).map(([Product, operating_profit]) => ({Product, operating_profit}));
     console.log("Selected State Data: ", selectedStateData);
 }
 </script>
