@@ -20,8 +20,8 @@
 </script>
 
 <div class="visualization">
-	<svg width="500" height="500">
-		<g transform="translate(250, 120)">
+	<svg width="540" height="1200">
+		<g transform="translate(100, 900)">
 			<!-- Place for Pie -->
 			{#each arc_data as data, index}
 			<path 
@@ -39,7 +39,7 @@
 </div>
 <style>
 	.visualization {
-		font: 25px sans-serif;
+		font: 50px sans-serif;
 		margin: auto;
 		margin-top: 1px;
 		text-align: middle;

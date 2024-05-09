@@ -30,7 +30,7 @@
 		mesh = topojson.mesh(us, us.objects.states, (a, b) => a !== b);
 		//$: console.log({ states, mesh })
 		
-		allData = await d3.csv('https://raw.githubusercontent.com/junyuelin/sales_dashboard/main/static/cleaned.csv');
+		allData = await d3.csv('https://raw.githubusercontent.com/junyuelin/sales_dashboard/main/static/cleaned_2021.csv');
 		console.log(allData);
 
 		// 汇总州级别的销售数据
@@ -90,7 +90,7 @@
 	}
 </script>
 
-<div class = "container">
+<div class = "container" style="height: 500px;">
 	{#if tooltip.visible}
 	<div class="tooltip" style="top: {tooltip.y}px; left: {tooltip.x}px;">
 		<strong>{tooltip.stateName}</strong><br>
@@ -98,8 +98,8 @@
 		Top Product: {tooltip.topProduct}
 	</div>
 	{/if}
-	<svg viewBox="0 0 1300 610">
-		<!-- 州形状 -->
+	<svg viewBox="-400 -100 1560 900">
+		<!-- 州形状，大小和位置 -->
 		<g fill="white" stroke="black">
 			{#each states as feature, i}
 			<path
@@ -189,11 +189,17 @@
 	}
 	
 	.legend {
+		position: absolute;
+		top: 700px;
+   		left: 500px;
     	margin-top: 20px;
 		margin-left: 60px;
 	}
 	
 	h2 {
+		position: absolute;
+		top: 730px;
+   		left: 950px;
 		margin-top: 35px;
 		margin-bottom: 55px; /* Adjust space between title and graph */
 		text-align: center; /* Center-aligns the text */
