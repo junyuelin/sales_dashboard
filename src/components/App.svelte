@@ -98,7 +98,7 @@
 		Top Product: {tooltip.topProduct}
 	</div>
 	{/if}
-	<svg viewBox="-400 -100 1560 900">
+	<svg viewBox="-420 -200 1560 1000">
 		<!-- 州形状，大小和位置 -->
 		<g fill="white" stroke="black">
 			{#each states as feature, i}
@@ -128,7 +128,7 @@
 		{/if}
 	</svg>
 	<div class="legend">
-		<svg width="300" height="45">
+		<svg width="300" height="65">
 		  <defs>
 			<linearGradient id="color-gradient">
 			  {#each d3.range(0, 1.01, 0.1) as t}
@@ -147,6 +147,7 @@
 
 <main>
    <section class="graph">
+		<h1 class="title"> Addidas Sales Dashboard</h1>
 		<h2>Operating Profit by Product</h2>
 		<div class="selectedName">{selected?.properties.name ?? ''}</div>
         <Graph {selectedStateData} />
@@ -190,19 +191,28 @@
 	
 	.legend {
 		position: absolute;
-		top: 700px;
-   		left: 500px;
-    	margin-top: 20px;
+		top: 680px;
+   		left: 580px;
+    	margin-top: 280px;
 		margin-left: 60px;
 	}
 	
 	h2 {
 		position: absolute;
-		top: 730px;
-   		left: 950px;
-		margin-top: 35px;
-		margin-bottom: 55px; /* Adjust space between title and graph */
+		top: 1030px;
+   		left: 1200px;
+		margin-top: 30px;
+		margin-bottom: 30px; /* Adjust space between title and graph */
 		text-align: center; /* Center-aligns the text */
 		padding-right: 25%; /* Adjusts map to the right */
 	}
+
+	h1 {
+        position: absolute;
+        top: 10px; /* Adjust as needed */
+        left: 50%; /* Center the title horizontally */
+        transform: translateX(-50%); /* Center the title horizontally */
+        font-size: 2rem; /* Adjust the font size as needed */
+        color: #333; /* Adjust the color as needed */
+    }
 </style>
