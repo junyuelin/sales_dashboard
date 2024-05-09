@@ -10,8 +10,9 @@
         .padAngle(.02)
         .cornerRadius(4);
     let pieAngleGenerator = d3.pie().value(d => d.operating_profit);
-    const arc_color = d3.scaleLinear()
-        .range(["#faafd1", "#db921d", "#b86a04", "#a65d29" ,"#6e3003", "#9e3003"]);
+    const arc_color = d3.scaleOrdinal()
+    .range(["#a69cac","#98c1d9", "#e0fbfc", "#ee6c4d","#fedc97", "#7dcfb6"]);
+
    
     // define function to format operating profit 
     $: arc_data = pieAngleGenerator(selectedStateData);
