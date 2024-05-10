@@ -6,6 +6,7 @@
 	import { draw } from 'svelte/transition';
 	import * as d3 from 'd3';
 	
+	
 	let allData = [];
 	let selectedStateData = [];
 	let states = [];
@@ -98,7 +99,7 @@
 		Top Product: {tooltip.topProduct}
 	</div>
 	{/if}
-	<svg viewBox="-420 -200 1560 1000">
+	<svg viewBox="-400 -100 1560 1000">
 		<!-- 州形状，大小和位置 -->
 		<g fill="white" stroke="black">
 			{#each states as feature, i}
