@@ -122,7 +122,7 @@
 		{#if selected}
 		<path
 			d={path(selected)}
-			fill="hsl(0 0% 50% / 20%)"
+			fill=pink
 			stroke="black"
 			stroke-width={2}
 		/>
@@ -149,7 +149,13 @@
 <main>
    <section class="graph">
 		<h1 class="title"> Addidas Sales Dashboard</h1>
-		<div class="selectedName">{selected ? `Operating Profit by Product in ${selected.properties.name}` : ''}</div>
+		<div class="selectedName">
+            {#if selected}
+                {selectedStateData.length > 0 ? `Operating Profit by Product in ${selected.properties.name}` : 'Oops! Data is not available.'}
+            {:else}
+                Click on the map to interact!
+            {/if}
+        </div>
         <Graph {selectedStateData} />
     </section>
 </main>
