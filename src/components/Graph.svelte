@@ -4,7 +4,23 @@
     export let selectedStateData = [];
     console.log('Graph loaded');
     let hovered = -1; 
+    let hoveredIndex = -1; // Track the index of the hovered pie slice
+    let tooltipVisible = false; // Variable to track tooltip visibility
+    let tooltipX = 0; // X-coordinate of the tooltip
+    let tooltipY = 0; // Y-coordinate of the tooltip
     
+    
+    function showTooltip(event, data, index) {
+        hoveredIndex = index;
+        tooltipVisible = true;
+        tooltipX = event.clientX;
+        tooltipY = event.clientY;
+    }
+
+    function hideTooltip() {
+        hoveredIndex = -1;
+        tooltipVisible = false;
+    }
     let arcGenerator = d3.arc()
         .innerRadius(30)
         .outerRadius(150)
@@ -19,6 +35,12 @@
     // generate pie chart
 </script>
 <div class="visualization">
+    <!-- Tooltip -->
+    {#if tooltipVisible}
+        <div class="tooltip" style="top: {tooltipY}px; left: {tooltipX}px;">
+            {arc_data[hoveredIndex].data.Product}: ${((arc_data[hoveredIndex].data.operating_profit / 1000000).toFixed(2))} million
+        </div>
+    {/if}
     <svg width="630" height="800">
     <!-- container size-->
         <g transform="translate(235, 380)"> // adjust the location of pie chart
@@ -31,8 +53,8 @@
                 })}
                 fill={index === hovered ? "brown": arc_color(index)}
                 stroke="black"
-                on:mouseover={(event) => { hovered = index; }}
-                on:mouseout={(event) => { hovered = -1; }}
+                on:mouseover={(event) => showTooltip(event, data, index)} 
+                on:mouseout={hideTooltip} 
             />
            
         <!-- Text for product name and operating profit --> 
@@ -53,7 +75,7 @@
 
 <!-- Legend -->
 <div class="legend">
-    {#each arc_data as data, index}
+    {#each arc_data.sort((a, b) => a.data.Product.localeCompare(b.data.Product)) as data, index}
     <div class="legend-item">
         <span 
             class="legend-color"
@@ -67,6 +89,16 @@
 
 
 <style>
+    .tooltip {
+        position: absolute;
+        pointer-events: none;
+        background: white;
+        border: 1px solid #ddd;
+        padding: 5px;
+        border-radius: 3px;
+        font-family: Arial, sans-serif;
+        font-size: 14px; /* Set the font size for all tooltips */
+    }
     .visualization {
         font: 50px sans-serif;
         margin: auto;

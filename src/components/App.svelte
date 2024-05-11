@@ -16,7 +16,6 @@
 
 	const projection = geoAlbersUsa().scale(500).translate([487.5, 305])
 	const path = geoPath().projection(null);
-	
 	let colorScale = () => 'lightgray';
 	let maxProfit = 0;
 	
@@ -95,7 +94,7 @@
 	{#if tooltip.visible}
 	<div class="tooltip" style="top: {tooltip.y}px; left: {tooltip.x}px;">
 		<strong>{tooltip.stateName}</strong><br>
-		Total Sales Profit: {(tooltip.totalProfit/1000000).toFixed(2)} million<br>
+		Total Sales Profit: ${(tooltip.totalProfit/1000000).toFixed(2)} million<br>
 		Top Product: {tooltip.topProduct}
 	</div>
 	{/if}
@@ -157,6 +156,9 @@
                 Click on the map to interact!
             {/if}
         </div>
+		<div class="adidas-logo-container">
+   			 <img src="https://github.com/junyuelin/sales_dashboard/blob/main/static/adidas%20logo.png?raw=true" alt="Adidas Logo" class="adidas-logo">
+		</div>
         <Graph {selectedStateData} />
     </section>
 </main>
@@ -184,7 +186,7 @@
 	.selectedName {
 		position: absolute;
 		top: 145px;
-   		left: 962px;
+   		left: 902px;
 		margin-top: 30px;
 		font-family: Arial, sans-serif;
 		font-size: 20px;
@@ -222,4 +224,15 @@
         font-size: 1.5rem; /* Adjust the font size as needed */
         color: #333; /* Adjust the color as needed */
     }
+	.adidas-logo-container { /* change the position of the logo */
+		position: absolute;
+		top: 20px; /* Adjust as needed */
+		right: 150px; /* Adjust as needed */
+	}
+
+	.adidas-logo {
+		width: 150px; /* Adjust the width as needed */
+		height: auto; /* Maintain aspect ratio */
+	}
+
 </style>
