@@ -95,7 +95,7 @@
 	{#if tooltip.visible}
 	<div class="tooltip" style="top: {tooltip.y}px; left: {tooltip.x}px;">
 		<strong>{tooltip.stateName}</strong><br>
-		Total Sales Profit: {tooltip.totalProfit}<br>
+		Total Sales Profit: {(tooltip.totalProfit/1000000).toFixed(2)} million<br>
 		Top Product: {tooltip.topProduct}
 	</div>
 	{/if}
@@ -140,8 +140,8 @@
 		  </defs>
 		  <rect width="300" height="15" fill="url(#color-gradient)" />
 		  <g transform="translate(0, 25)">
-			<text x="0" y="10" font-size="10">0</text>
-			<text x="260" y="10" font-size="10">{maxProfit.toLocaleString()}</text>
+			<text x="0" y="10" font-size="10">{(0).toFixed(2)}</text>
+			<text x="240" y="10" font-size="10">{(maxProfit/1000000).toFixed(2)} million</text>
 		  </g>
 		</svg>
 	</div>
@@ -149,7 +149,7 @@
 
 <main>
    <section class="graph">
-		<h1 class="title"> Addidas Sales Dashboard</h1>
+		<h1 class="title"> Which Adidas products generate the most operating profit across different states in 2021?</h1>
 		<div class="selectedName">
             {#if selected}
                 {selectedStateData.length > 0 ? `Operating Profit by Product in ${selected.properties.name}` : 'Oops! Data is not available.'}
@@ -214,12 +214,12 @@
 		margin-left: 60px;
 	}
 
-	h1 {
+	h1 { /* title */
         position: absolute;
-        top: 10px; /* Adjust as needed */
-        left: 50%; /* Center the title horizontally */
+        top: 24px; /* Adjust as needed */
+        left: 39%; /* Center the title horizontally */
         transform: translateX(-50%); /* Center the title horizontally */
-        font-size: 2rem; /* Adjust the font size as needed */
+        font-size: 1.5rem; /* Adjust the font size as needed */
         color: #333; /* Adjust the color as needed */
     }
 </style>
