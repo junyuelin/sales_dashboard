@@ -30,6 +30,7 @@
                     endAngle: data.endAngle
                 })}
                 fill={index === hovered ? "brown": arc_color(index)}
+                stroke="black"
                 on:mouseover={(event) => { hovered = index; }}
                 on:mouseout={(event) => { hovered = -1; }}
             />

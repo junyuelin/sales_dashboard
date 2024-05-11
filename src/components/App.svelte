@@ -129,6 +129,7 @@
 		{/if}
 	</svg>
 	<div class="legend">
+		<h2>Total Sales Profit</h2>
 		<svg width="300" height="65">
 		  <defs>
 			<linearGradient id="color-gradient">
@@ -161,6 +162,12 @@
 </main>
 
 <style>
+    .legend h2 {
+        font-size: 1rem; /* Adjust font size */
+        color: #333; /* Adjust text color */
+        margin-bottom: 10px; /* Add margin for spacing */
+    }
+
 	.tooltip {
 		position: absolute;
 		pointer-events: none;
@@ -201,7 +208,7 @@
 	
 	.legend {
 		position: absolute;
-		top: 50px;
+		top: 15px;
    		left: 550px;
     	margin-top: 20px;
 		margin-left: 60px;
