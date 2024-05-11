@@ -118,7 +118,7 @@
 		<!-- 内部线条 -->
 		<path d={path(mesh)} fill="none" stroke="black" />
 		
-		<!-- 如果选择了某个州，则以半透明灰色填充显示 -->
+		<!-- 如果选择了某个州，则以pink色填充显示 -->
 		{#if selected}
 		<path
 			d={path(selected)}
@@ -149,8 +149,7 @@
 <main>
    <section class="graph">
 		<h1 class="title"> Addidas Sales Dashboard</h1>
-		<h2>Operating Profit by Product</h2>
-		<div class="selectedName">{selected?.properties.name ?? ''}</div>
+		<div class="selectedName">{selected ? `Operating Profit by Product in ${selected.properties.name}` : ''}</div>
         <Graph {selectedStateData} />
     </section>
 </main>
@@ -166,46 +165,40 @@
 	}
 
 	.state:hover {
-		fill: hsl(0 0% 50% / 20%);
+		fill: pink;
 	}
 	
 	.selectedName {
-		margin-bottom: 20px;
-		text-align: center; /* Align in the middle */
-		padding-right: 42%;
-		font-size: 1.5rem;
+		position: absolute;
+		top: 145px;
+   		left: 962px;
+		margin-top: 30px;
+		font-family: Arial, sans-serif;
+		font-size: 20px;
 	}
 	
 	.graph {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end; /* Align title to the left */
-		justify-content: center; /* 我没太懂这个用来干啥滴 */
+		justify-content: center; 
 		padding-left: 57%; /* Shift graph section to the left */
 		margin-top: -600px; /* Adjust this value to align vertically */
 	}
 	
 	.container {
-		padding-right: 15%; /* Adjusts map to the right */
+		width: 75%; /* Adjust the width as needed */
+		position: relative;
+		left: -10%; /* Moves the container to the left */
 		margin-top: 90px; /* Moves the map down */
 	}
 	
 	.legend {
 		position: absolute;
-		top: 680px;
-   		left: 580px;
-    	margin-top: 280px;
+		top: 50px;
+   		left: 550px;
+    	margin-top: 20px;
 		margin-left: 60px;
-	}
-	
-	h2 {
-		position: absolute;
-		top: 1030px;
-   		left: 1200px;
-		margin-top: 30px;
-		margin-bottom: 30px; /* Adjust space between title and graph */
-		text-align: center; /* Center-aligns the text */
-		padding-right: 25%; /* Adjusts map to the right */
 	}
 
 	h1 {

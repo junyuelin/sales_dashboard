@@ -6,8 +6,8 @@
     let hovered = -1; 
     
     let arcGenerator = d3.arc()
-        .innerRadius(250*0.5)
-        .outerRadius(250*0.8)
+        .innerRadius(30)
+        .outerRadius(150)
         .padAngle(.02)
         .cornerRadius(4);
     let pieAngleGenerator = d3.pie().value(d => d.operating_profit);
@@ -19,9 +19,10 @@
     // generate pie chart
 </script>
 <div class="visualization">
-    <svg width="3000" height="2400">
+    <svg width="630" height="800">
     <!-- container size-->
-        <g transform="translate(250, 1300)">
+        <g transform="translate(235, 380)"> // adjust the location of pie chart
+            <!-- Title for the Pie Chart -->
             <!-- Place for Pie -->
             {#each arc_data as data, index}
             <path 
@@ -75,8 +76,8 @@
 
     .legend {
     position: absolute;
-    top: 1300px; /* Adjust the top offset */
-    left: 1600px; /* Adjust the left offset */
+    top: 330px; /* Adjust the top offset */
+    left: 1275px; /* Adjust the left offset */
 }
     .legend-item {
         margin-bottom: 5px; /* Adjust the spacing between legend items */
