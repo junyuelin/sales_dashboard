@@ -160,7 +160,8 @@
 
 <style>
     .legend h2 {
-        font-size: 1rem; /* Adjust font size */
+        font-size: 1.1rem; /* Adjust font size */
+		font-family:Roboto, Arial, sans-serif;
         color: #333; /* Adjust text color */
         margin-bottom: 10px; /* Add margin for spacing */
     }
@@ -183,8 +184,9 @@
 		top: 145px;
    		left: 920px;
 		margin-top: 35px;
-		font-family: Arial, sans-serif;
-		font-size: 20px;
+		font-family: Roboto, Arial, sans-serif;
+		font-size: 1.1rem;
+		font-weight: bold;
 	}
 	
 	.graph {
@@ -209,6 +211,7 @@
    		left: 550px;
     	margin-top: 20px;
 		margin-left: 60px;
+		font-family: Arial, sans-serif;
 	}
 
 	h1 { /* title */
@@ -217,6 +220,7 @@
         left: 40%; /* Center the title horizontally */
         transform: translateX(-50%); /* Center the title horizontally */
         font-size: 1.5rem; /* Adjust the font size as needed */
+		font-family:Roboto, Arial, sans-serif;
         color: #333; /* Adjust the color as needed */
     }
 	.adidas-logo-container { /* change the position of the logo */

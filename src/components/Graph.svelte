@@ -96,8 +96,8 @@
         border: 1px solid #ddd;
         padding: 5px;
         border-radius: 3px;
-        font-family: Arial, sans-serif;
-        font-size: 14px; /* Set the font size for all tooltips */
+        font-size: 1.1rem; /* Set the font size for all tooltips */
+        font-family:Roboto, Arial, sans-serif;
     }
     .visualization {
         font: 50px sans-serif;
@@ -108,8 +108,8 @@
 
     .legend {
     position: absolute;
-    top: 550px; /* Adjust the top offset */
-    left: 1200px; /* Adjust the left offset */
+    top: 590px; /* Adjust the top offset */
+    left: 900px; /* Adjust the left offset */
 }
     .legend-item {
         margin-bottom: 5px; /* Adjust the spacing between legend items */
@@ -122,6 +122,13 @@
         border-radius: 50%; /* Make it round */
         margin-right: 5px; /* Adjust the spacing between the circle and the text */
         vertical-align: middle; /* Align vertically with text */
+    }
+    .legend-text {
+        /* Add your formatting styles here */
+        font-size: 1.1rem;
+        font-family:Roboto, Arial, sans-serif;
+        line-height: 1.25;
+       
     }
     
 </style>  
