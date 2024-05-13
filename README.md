@@ -26,13 +26,17 @@ To achieve our goal, we utilize an interactive US map to distinctly delineate re
 - **Alternatives Considered**: Utilizing bar charts to display the operating profit data by state. While bar charts are excellent for comparing quantities and quickly identifying trends, they present challenges when there is a significant range between the highest and lowest values, which could make it difficult for users to visually grasp subtler variations in data at a glance, especially in states where some product categories might dominate overwhelmingly. Moreover, the bar chart format might not provide as intuitive a breakdown of the proportionate contributions of different product categories to the total profit as pie charts do.
 
 ## Overview of Development Process and Challenge
-...
+- **Development Process**:
+We held three meetings to plan our project. First, we chose our general topic and set project expectations. In the second meeting,
+we decided on using the dataset containing sales and operating profit data of Adidas across different US states, and defined the questions we aimed to address through our data visualization.brainstormed on visualization ideas. After brainstorming various visualization options and browsing through examples, we settled on a US map and pie chart to display sales and profit data of addidas products. Each of us worked on parts individually and shared progress on GitHub. In the third meeting, we reviewed our work and assigned tasks for further refinements. 
+
+- **Challenge**: One significant challenge we encountered was accurately positioning the map and pie chart elements to prevent any parts from being cropped or obscured. Additionally, we also faced some challenges when trying to refine the design of the pie chart, particularly in positioning the legend effectively. One team member experienced discrepancies between her local host and the GitHub view, leading to frustration when trying to position elements properly. Furthermore,we also discovered probelms with inconsistent website layout across various devices due to the differing screen sizes and ratios
 
 ## Team Roles
 Throughout the project, each team member dedicated approximately 20 hours to significantly enhance the interactivity and user experience of our visualization.  Here is our detailed task allocation:
-- Junyue Lin: Junyue initialized the GitHub repository for project collaboration, spearheaded the task of importing datasets and creating....
+-Junyue Lin: Junyue initialized the GitHub repository for project collaboration, spearheaded the task of importing datasets and crafting the initial visualizations, refined the overall structure, and implemented interactive functionalities such as tooltips and hover details over the pie chart. Additionally, Junyue contributed the integration of the Adidas logo into the project.
 - Kristina Wu: Kristina outlined the whole visual elements structures, developed color-coding spreading on the whole map, built interactive functionalities including tooltips and hover details over map, finalized the whole structure, and played a pivotal role in shaping the narrative for our project documentation.
-- Cici Xu: ....
+- Cici Xu: Cici revamped the pie chart by refining colors, adding dynamic annotations to display profit percentages, and integrating a comprehensive legend for clarity; contribued refinement ideas to enrich the overall project outcome. 
 
 ## Conclusion
 Our visualization project “Top Products by Profit Across States” effectively equips Adidas stakeholders with the insights needed to optimize product strategies across the U.S. Through the use of an interactive US map and state-specific pie charts, the tool enables quick and intuitive analysis of operating profits by product category.
