@@ -1,107 +1,38 @@
-# svelte-template
+# Top Products by Profit Across States: Which Adidas products generate the most operating profit across different states in 2021?
 
-This repo contains a template for a Svelte project that uses D3. It has extra
-configuration to make it easy to deploy to GitHub pages.
+## Overview
+This web-based visualization tool is designed to enable Adidas's stakeholders — including product managers, sales strategists, and marketing teams — to quickly and effectively understand which products are performing best across different regions of the United States. By presenting this data in an interactive and visually engaging format, the tool aids in strategic decision-making and optimizes product placement according to regional performance.
 
-## Getting started
+To achieve our goal, we utilize an interactive US map to distinctly delineate regional boundaries. This geographical segmentation ensures that users can easily identify and select specific states. Following the selection of a state, a pie chart corresponding to that region is displayed. This chart provides an immediate visual breakdown of the operating profit proportions for different product categories within the selected area.
 
-Click the green "Use this template" button, then "Create a new repository" in
-the top right portion of the webpage.
+## Visual Elements Description
 
-![template](assets/template.png)
+### US Map Encoding
+- **Marks**: Rectangles (blocks)
+- **Encodings**: Color for total operating profit, arranged in a grid layout that is roughly geographical to facilitate intuitive understanding of regional distributions.
 
-After GitHub completes the cloning process, navigate to the Settings page. On
-the left panel, under the "Pages" tab, locate the "Source" section and select
-"GitHub Actions" as the source.
+### Pie Chart Encoding
+- **Marks**: Arc segments
+- **Encodings**: Colors represent different product categories, and angles represent operating profit percentages, making it easy to perceive which categories are most profitable.
 
-Then, clone this repository to your local computer. After cloning the
-repository, navigate to the repository in your terminal and run:
+## Choosing Process of Visual Elements
 
-```
-npm install
-```
+### US Map with Color Coding
+- **Rationale**: The grid-based map with blocks representing each state allows for a clear, distinct visualization of geographic data without the complexity of traditional map details. This design makes it easier for users to compare data across states. The color coding based on total sales revenue uses a sequential color scheme to intuitively signify variations in revenue — darker shades represent higher revenue, aligning with natural human perceptions of color intensity.
+- **Alternatives Considered**: One alternative might have been using a traditional geographic map with proportional symbols (like bubbles) to represent revenue. However, this was discarded as it could lead to a cluttered map with overlapping symbols, especially in regions with small geographical areas but high data density.
 
-To start your local dev server, run
+### Hover and Click Interactions
+- **Why Tooltip and Pie Charts**: Tooltips on hover provide immediate contextual information without additional clicks, making the data accessible and easily understandable at a glance. We provide quick access to key data points like total sales profit and top products, which enhances user engagement without overwhelming them with information. Moreover, clickable state blocks leading to pie charts allow for deeper exploration of the data, revealing the profit distribution among different product categories within a selected state.
+- **Alternatives Considered**: Utilizing bar charts to display the operating profit data by state. While bar charts are excellent for comparing quantities and quickly identifying trends, they present challenges when there is a significant range between the highest and lowest values, which could make it difficult for users to visually grasp subtler variations in data at a glance, especially in states where some product categories might dominate overwhelmingly. Moreover, the bar chart format might not provide as intuitive a breakdown of the proportionate contributions of different product categories to the total profit as pie charts do.
 
-```
-npm run dev
-```
+## Overview of Development Process and Challenge
+...
 
-You can now edit your files in VSCode to see changes update in your browser.
-Start by making a small edit to `src/components/App.svelte` and make sure that
-the changes are reflected in your browser window.
+## Team Roles
+Throughout the project, each team member dedicated approximately 20 hours to significantly enhance the interactivity and user experience of our visualization.  Here is our detailed task allocation:
+- Junyue Lin: Junyue initialized the GitHub repository for project collaboration, spearheaded the task of importing datasets and creating....
+- Kristina Wu: Kristina outlined the whole visual elements structures, developed color-coding spreading on the whole map, built interactive functionalities including tooltips and hover details over map, finalized the whole structure, and played a pivotal role in shaping the narrative for our project documentation.
+- Cici Xu: ....
 
-### Including static files (e.g. datasets)
-
-To include files like datasets and images in your project, place your files in
-the `static/` folder (NOT the `src/` folder).
-
-For example, if you have a file `static/temp.csv`, your code can load that
-file by using a relative path:
-
-```js
-const res = await fetch('temp.csv');
-```
-
-Note that with our default configuration, all of these snippets **might work
-locally but not on GitHub pages**:
-
-```js
-// None of these work properly
-// const res = await fetch('/temp.csv');
-// const res = await fetch('static/temp.csv');
-```
-
-### Using other packages (e.g. Mapbox)
-
-To include other packages in your project, install them first by running:
-
-```js
-npm install --save moment
-```
-
-Then, you can import the packages in your Svelte JS like so:
-
-```js
-import moment from 'moment';
-```
-
-You should double check the package page to make sure you didn't miss anything
-during import. For example, the web page for setting up mapbox-gl with Svelte
-(https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-svelte/) says
-that you should actually write two `import` statements:
-
-```js
-// This imports the package itself
-import mapbox from 'mapbox-gl';
-// This import the mapbox CSS styles
-import 'mapbox-gl/dist/mapbox-gl.css';
-```
-
-## Deploying your webpage
-
-To update your GitHub page, make a commit locally and push your changes to
-GitHub. When you do so, the corresponding GitHub Actions will execute and
-automatically update your static website hosted at
-`https://your-username.github.io/your-repo-name` for you.
-
-![github-pages](assets/github-pages.png)
-
-## Debugging
-
-**My code works locally but when I push to GitHub the deployment fails.**
-
-Run `npm run build`, which tries to replicate GitHub's build process. Ideally,
-that command will give the same error message as the GitHub workflow. If so,
-you can tinker with your code locally until `npm run build` works, which will
-have a very high chance of fixing your build. If the command doesn't give the
-same result as the GitHub workflow, make an Ed post.
-
-**My code works locally and deploys, but nothing renders on the screen.**
-
-Check to make sure that your static files (e.g. datasets) are loaded properly.
-For example, if you have a file `static/temp.csv`, your code should load that
-file by using a relative path.
-
-If that doesn't fix your bug, open your browser's console window and see if an
-error appears.
+## Conclusion
+Our visualization project “Top Products by Profit Across States” effectively equips Adidas stakeholders with the insights needed to optimize product strategies across the U.S. Through the use of an interactive US map and state-specific pie charts, the tool enables quick and intuitive analysis of operating profits by product category.

@@ -33,12 +33,10 @@
 		allData = await d3.csv('https://raw.githubusercontent.com/junyuelin/sales_dashboard/main/static/cleaned_2021.csv');
 		console.log(allData);
 
-		// 汇总州级别的销售数据
 		aggregateDataPerState();
 		setupColorScale();
 	})
 
-	// 汇总每个州的数据
 	function aggregateDataPerState() {
 		const stateProfitData = d3.group(allData, d => d.State);
 		states = states.map(state => {
@@ -50,14 +48,12 @@
 		});
 	}
 
-	// 设置颜色比例尺
 	function setupColorScale() {
 		maxProfit = d3.max(states, d => d.totalProfit);
 		console.log("Max Profit:", maxProfit); // Debugging line
 		colorScale = d3.scaleSequential(d3.interpolateBlues).domain([0, maxProfit]);
 	}
 	
-	// 显示工具提示
 	function showTooltip(event, state) {
 		tooltip = {
 			visible: true,
@@ -69,7 +65,6 @@
 		};
 	}
 	
-	// 隐藏工具提示
 	function hideTooltip() {
 		tooltip.visible = false;
 	}
@@ -148,7 +143,7 @@
 
 <main>
    <section class="graph">
-		<h1 class="title"> Which Adidas products generate the most operating profit across different states in 2021?</h1>
+		<h1 class="title"> Which Adidas's products generate the most operating profit across different states in 2021?</h1>
 		<div class="selectedName">
             {#if selected}
                 {selectedStateData.length > 0 ? `Operating Profit by Product in ${selected.properties.name}` : 'Oops! Data is not available.'}
@@ -186,8 +181,8 @@
 	.selectedName {
 		position: absolute;
 		top: 145px;
-   		left: 902px;
-		margin-top: 30px;
+   		left: 920px;
+		margin-top: 35px;
 		font-family: Arial, sans-serif;
 		font-size: 20px;
 	}
@@ -198,19 +193,19 @@
 		align-items: flex-end; /* Align title to the left */
 		justify-content: center; 
 		padding-left: 57%; /* Shift graph section to the left */
-		margin-top: -600px; /* Adjust this value to align vertically */
+		margin-top: -580px; /* Adjust this value to align vertically */
 	}
 	
 	.container {
-		width: 75%; /* Adjust the width as needed */
+		width: 86%; /* Adjust the width as needed */
 		position: relative;
-		left: -10%; /* Moves the container to the left */
-		margin-top: 90px; /* Moves the map down */
+		left: -18%; /* Moves the container to the left */
+		margin-top: 100px; /* Moves the map down */
 	}
 	
 	.legend {
 		position: absolute;
-		top: 15px;
+		top: 10px;
    		left: 550px;
     	margin-top: 20px;
 		margin-left: 60px;
@@ -219,7 +214,7 @@
 	h1 { /* title */
         position: absolute;
         top: 24px; /* Adjust as needed */
-        left: 39%; /* Center the title horizontally */
+        left: 40%; /* Center the title horizontally */
         transform: translateX(-50%); /* Center the title horizontally */
         font-size: 1.5rem; /* Adjust the font size as needed */
         color: #333; /* Adjust the color as needed */
