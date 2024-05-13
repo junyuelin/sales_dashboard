@@ -127,8 +127,6 @@
         /* Add your formatting styles here */
         font-size: 1.0rem;
         font-family:Roboto, Arial, sans-serif;
-        line-height: 1.15;
-       
-    }
+        }
     
 </style>  
