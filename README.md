@@ -37,7 +37,7 @@ Throughout the project, each team member dedicated approximately 20 hours to sig
 
 - **Junyue Lin**: Junyue initialized the GitHub repository for project collaboration, spearheaded the task of importing datasets and crafting the initial visualizations, refined the overall structure, and implemented interactive functionalities such as tooltips and hover details over the pie chart. Additionally, Junyue contributed the integration of the Adidas logo into the project.
 - **Kristina Wu**: Kristina outlined the whole visual elements structures, developed color-coding spreading on the whole map, built interactive functionalities including tooltips and hover details over map, finalized the whole structure, and played a pivotal role in shaping the narrative for our project documentation.
-- **Cici Xu**: Cici revamped the pie chart by refining colors, adding dynamic annotations to display profit percentages, and integrating a comprehensive legend for clarity; contribued refinement ideas to enrich the overall project outcome. 
+- **Cici Xu**: Cici revamped the pie chart by refining colors, adding dynamic annotations to display profit percentages, and integrating a comprehensive legend for clarity; contribued refinement ideas to enrich the overall project outcome; finalized the visualizatione to ensure consistency in positioning, font size, and style.
 
 ## Conclusion
 Our visualization project “Top Products by Profit Across States” effectively equips Adidas stakeholders with the insights needed to optimize product strategies across the U.S. Through the use of an interactive US map and state-specific pie charts, the tool enables quick and intuitive analysis of operating profits by product category.

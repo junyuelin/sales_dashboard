@@ -227,7 +227,7 @@
     }
 	.adidas-logo-container { /* change the position of the logo */
 		position: absolute;
-		top: 20px; /* Adjust as needed */
+		top: 22px; /* Adjust as needed */
 		left: 50px; /* Adjust as needed */
 	}
 
