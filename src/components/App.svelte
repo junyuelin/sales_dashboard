@@ -219,7 +219,7 @@
 		white-space: nowrap; /* Prevent text from wrapping */
         position: absolute;
         top: 22px; /* Adjust as needed */
-        left: 55%; /* Center the title horizontally */
+        left: 52%; /* Center the title horizontally */
         transform: translateX(-50%); /* Center the title horizontally */
         font-size: 1.5rem; /* Adjust the font size as needed */
 		font-family:Roboto, Arial, sans-serif;
@@ -227,7 +227,7 @@
     }
 	.adidas-logo-container { /* change the position of the logo */
 		position: absolute;
-		top: 24px; /* Adjust as needed */
+		top: 25px; /* Adjust as needed */
 		left: 50px; /* Adjust as needed */
 	}
 
