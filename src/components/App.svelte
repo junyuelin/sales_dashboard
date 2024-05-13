@@ -216,9 +216,10 @@
 	}
 
 	h1 { /* title */
+		white-space: nowrap; /* Prevent text from wrapping */
         position: absolute;
         top: 24px; /* Adjust as needed */
-        left: 50%; /* Center the title horizontally */
+        left: 45%; /* Center the title horizontally */
         transform: translateX(-50%); /* Center the title horizontally */
         font-size: 1.5rem; /* Adjust the font size as needed */
 		font-family:Roboto, Arial, sans-serif;
@@ -227,7 +228,7 @@
 	.adidas-logo-container { /* change the position of the logo */
 		position: absolute;
 		top: 20px; /* Adjust as needed */
-		left: 20px; /* Adjust as needed */
+		left: 50px; /* Adjust as needed */
 	}
 
 	.adidas-logo {
