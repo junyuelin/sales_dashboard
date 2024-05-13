@@ -96,7 +96,7 @@
         border: 1px solid #ddd;
         padding: 5px;
         border-radius: 3px;
-        font-size: 1.1rem; /* Set the font size for all tooltips */
+        font-size: 1.0rem; /* Set the font size for all tooltips */
         font-family:Roboto, Arial, sans-serif;
     }
     .visualization {
@@ -125,9 +125,9 @@
     }
     .legend-text {
         /* Add your formatting styles here */
-        font-size: 1.1rem;
+        font-size: 1.0rem;
         font-family:Roboto, Arial, sans-serif;
-        line-height: 1.25;
+        line-height: 1.15;
        
     }
     
