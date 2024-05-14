@@ -22,8 +22,8 @@
         tooltipVisible = false;
     }
     let arcGenerator = d3.arc()
-        .innerRadius(30)
-        .outerRadius(150)
+        .innerRadius(25)
+        .outerRadius(120)
         .padAngle(.02)
         .cornerRadius(4);
     let pieAngleGenerator = d3.pie().value(d => d.operating_profit);
