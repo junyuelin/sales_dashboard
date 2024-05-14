@@ -108,7 +108,7 @@
 
     .legend {
     position: absolute;
-    top: 590px; /* Adjust the top offset */
+    top: 550px; /* Adjust the top offset */
     left: 980px; /* Adjust the left offset */
 }
     .legend-item {
