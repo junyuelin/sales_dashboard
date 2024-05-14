@@ -58,7 +58,7 @@
 		tooltip = {
 			visible: true,
 			x: event.pageX+160,
-			y: event.pageY,
+			y: event.pageY-50,
 			stateName: state.properties.name,
 			totalProfit: state.totalProfit,
 			topProduct: state.topProduct
