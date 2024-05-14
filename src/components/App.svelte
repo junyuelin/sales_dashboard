@@ -57,8 +57,8 @@
 	function showTooltip(event, state) {
 		tooltip = {
 			visible: true,
-			x: event.pageX + 200,
-			y: event.pageY-100,
+			x: event.pageX+160,
+			y: event.pageY-50,
 			stateName: state.properties.name,
 			totalProfit: state.totalProfit,
 			topProduct: state.topProduct
