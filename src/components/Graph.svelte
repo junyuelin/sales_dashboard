@@ -109,7 +109,7 @@
     .legend {
     position: absolute;
     top: 590px; /* Adjust the top offset */
-    left: 900px; /* Adjust the left offset */
+    left: 1250px; /* Adjust the left offset */
 }
     .legend-item {
         margin-bottom: 5px; /* Adjust the spacing between legend items */
