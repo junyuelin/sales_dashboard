@@ -23,7 +23,7 @@
     }
     let arcGenerator = d3.arc()
         .innerRadius(25)
-        .outerRadius(120)
+        .outerRadius(140)
         .padAngle(.02)
         .cornerRadius(4);
     let pieAngleGenerator = d3.pie().value(d => d.operating_profit);
@@ -43,7 +43,7 @@
     {/if}
     <svg width="630" height="800">
     <!-- container size-->
-        <g transform="translate(260, 380)"> // adjust the location of pie chart
+        <g transform="translate(285, 380)"> // adjust the location of pie chart
             <!-- Place for Pie -->
             {#each arc_data as data, index}
             <path 
