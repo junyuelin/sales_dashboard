@@ -43,7 +43,7 @@
     {/if}
     <svg width="630" height="800">
     <!-- container size-->
-        <g transform="translate(235, 380)"> // adjust the location of pie chart
+        <g transform="translate(260, 380)"> // adjust the location of pie chart
             <!-- Place for Pie -->
             {#each arc_data as data, index}
             <path 
