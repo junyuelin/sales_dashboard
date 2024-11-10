@@ -14,7 +14,7 @@
         hoveredIndex = index;
         tooltipVisible = true;
         tooltipX = event.clientX;
-        tooltipY = event.clientY +50;
+        tooltipY = event.clientY;
     }
 
     function hideTooltip() {
